@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>Tagculator</title>
+    <!-- Latest compiled and minified CSS-->
+    <link rel="stylesheet" href="http://maxcdn.bootstrapcdn.com/bootstrap/3.3.6/css/bootstrap.min.css">
+    <!-- jQuery library -->
+    <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.0/jquery.min.js"></script>
+</head>
+
+<body>
+	</br>
+	</br>
+    <div class="container" id="tagcon">
+        <div class="tagmag">
+            <button type="button" class="btn btn-info" data-name='a'>
+                <span> a </span>
+            </button>
+            <button type="button" class="btn btn-info" data-name='b'>
+                <span> b </span>
+            </button>
+            <button type="button" class="btn btn-info" data-name='c'>
+                <span> c </span>
+            </button>
+            <button type="button" class="btn btn-info" data-name='d'>
+                <span> d </span>
+            </button>
+            <button type="button" class="btn btn-info" data-name='e'>
+                <span> e </span>
+            </button>
+           
+        </div>
+    </div>
+    <div class="container" id="listcon">
+        <ul class="taglist">
+        </ul>
+    </div>
+    <script>
+    var tagName;
+    var tl = $('taglist');
+    var tm = $('btn btn-info');
+
+    $(document).ready(function() {
+
+        for (var i = 0; i < tm.length; i++) {
+            tm[i].click(function() {
+                var li = $('li');
+                tagName = $(this).dataset.name;
+                li.innerHTML = tagName;
+                tl[0].appendChild(li);
+                li.click(function() {
+                    $(this).hide();
+                });
+                li.className = 'list-item';
+            });
+        }
+    });
+    </script>
+</body>
+
+</html>
